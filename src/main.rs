@@ -16,5 +16,5 @@ fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 fn usage() {
-    println!("{0} <pathToFile> <LineToSearch> ", "minigrep");
+    println!("{0} <Query> <File> ", "minigrep");
 }
