@@ -5,8 +5,8 @@ A lightweight, modular command-line text search tool written in Rust, inspired b
 ## Features
 
 - **Substring search:** Searches line-by-line through text files and prints matching lines.
-- **Zero-copy configuration:** Uses borrowed string slices (`&'a str`) in `Config` to parse CLI arguments without unnecessary heap allocations.
-- **Modular architecture:** Separates CLI configuration (`config.rs`), file reading and search execution (`reader.rs`), and entry-point error handling (`main.rs`).
+- **Zero-copy configuration:** Uses borrowed string slices to parse CLI arguments without unnecessary heap allocations.
+- **Modular architecture:** Separates CLI configuration , file reading and search execution , and entry-point error handling .
 - **Clean error handling:** Outputs errors to `stderr` so standard output (`stdout`) stays clean for piping or file redirection.
 
 ## Prerequisites
