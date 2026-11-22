@@ -5,7 +5,7 @@ A lightweight, modular command-line text search tool written in Rust, inspired b
 ## Features
 
 - **Substring search:** Searches line-by-line through text files and prints matching lines.
-<!--- **Case-sensitive & case-insensitive modes:** Supports exact matching by default or case-insensitive search via the `IGNORE_CASE` environment variable.-->
+- **Zero-copy configuration:** Uses borrowed string slices (`&'a str`) in `Config` to parse CLI arguments without unnecessary heap allocations.
 - **Modular architecture:** Separates CLI configuration (`config.rs`), file reading and search execution (`reader.rs`), and entry-point error handling (`main.rs`).
 - **Clean error handling:** Outputs errors to `stderr` so standard output (`stdout`) stays clean for piping or file redirection.
 
@@ -41,16 +41,10 @@ cargo run -- <QUERY> <FILE_PATH>
 cargo run -- baby src/baby.txt
 ```
 
-**Case-insensitive search:**
+**Run using the compiled release binary:**
 
-*Linux / macOS:*
 ```bash
-cargo run -- baby src/baby.txt
-```
-
-*Windows (PowerShell):*
-```powershell
-cargo run -- baby src/baby.txt
+./target/release/minigrep baby src/baby.txt
 ```
 
 **Redirect output to a file:**
@@ -74,7 +68,7 @@ minigrep/
 ├── src/
 │   ├── main.rs     # Entry point and top-level error handling
 │   ├── lib.rs      # Library root and module exports
-│   ├── config.rs   # CLI argument and environment variable parsing
+│   ├── config.rs   # Zero-copy CLI argument parsing
 │   ├── reader.rs   # File reading and line-matching search logic
 │   └── baby.txt    # Sample text file for testing searches
 ├── Cargo.toml
