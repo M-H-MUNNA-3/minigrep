@@ -18,7 +18,7 @@ A lightweight, modular command-line text search tool written in Rust, inspired b
 Clone the repository and build the release binary:
 
 ```bash
-git clone https://github.com
+git clone https://github.com/M-H-MUNNA-3/minigrep.git
 cd minigrep
 cargo build --release
 ```
